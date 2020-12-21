@@ -1,0 +1,24 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Cinemapp</mat-card-title>
+    </mat-card-header>
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Usuario">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Contraseña">
+        </mat-form-field>
+        <button mat-stroked-button color="primary" class="btn-block" (click)="clickButton()">Iniciar Sesión</button>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <button mat-fab class="login-divider social-media-button" (click)="authService.signInWithGoogle()">
+        <mat-icon svgIcon="google"></mat-icon>
+      </button>
+    </div>
+    </form>
+  </mat-card>
+</div>

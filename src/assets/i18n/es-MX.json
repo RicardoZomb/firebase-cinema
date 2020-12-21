@@ -1,0 +1,26 @@
+{
+    "Sidebar": {
+        "Search-movies": "Buscar películas",
+        "Now-playing": "En cartelera",
+        "Coming soon": "Proximamente",
+        "Trending": "Tendencias",
+        "Watch later": "Ver después",
+        "Categories": "Categorias",
+        "Sign out": "Cerrar Sesión",
+        "Settings": "Configuración",
+        "About": "Acerca",
+        "Language": "Lenguaje"
+    },
+    "Movie": {
+        "Watch later": "Ver después",
+        "Favorite": "Favoritos",
+        "Categories": "Categorias",
+        "Share": "Compartir",
+        "Cast": "Elenco",
+        "Trailer": "Trailer",
+        "Similar": "Películas similares",
+        "No lists": "No hay peliculas similares",
+        "No trailer": "No hay trailer disponible",
+        "No results": "No hay resultados"
+    }
+}

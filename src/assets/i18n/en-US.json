@@ -1,0 +1,23 @@
+{
+    "App": {
+        "Search-movies": "Search movies",
+        "Now-playing": "Now playing",
+        "Coming soon": "Coming soon",
+        "Trending": "Trending",
+        "Watch later": "Watch later",
+        "Categories": "Categories",
+        "Sign out": "Sign out",
+        "Settings": "Settings",
+        "About": "About",
+        "Language": "Language"
+    },
+    "Movie": {
+        "Watch later": "Watch later",
+        "Favorite": "Favorite",
+        "Categories": "Categories",
+        "Share": "Share",
+        "Cast": "Cast",
+        "Trailer": "Trailer",
+        "Similar": "Similar movies"
+    }
+}
