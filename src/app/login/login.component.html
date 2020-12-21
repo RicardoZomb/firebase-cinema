@@ -3,15 +3,16 @@
     <mat-card-header>
       <mat-card-title>Cinemapp</mat-card-title>
     </mat-card-header>
-    <form class="example-form">
+    <form class="example-form" [formGroup]="loginForm">
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Usuario">
+          <input matInput formControlName="user" placeholder="Usuario">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Contraseña">
+          <input matInput formControlName="password" placeholder="Contraseña">
         </mat-form-field>
-        <button mat-stroked-button color="primary" class="btn-block" (click)="clickButton()">Iniciar Sesión</button>
+        <button mat-stroked-button color="primary" class="btn-block" (click)="clickButton(loginForm.value)"
+        [disabled]="!loginForm.valid">Iniciar Sesión</button>
       </mat-card-content>
       <mat-divider></mat-divider>
     <div fxLayout="row" fxLayoutAlign="center center">

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AuthService } from './services/auth.service';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,6 @@ import { AngularMaterialModule } from './shared/angular-material.module';
 import { LoginModule } from './login/login.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -22,11 +21,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
-    AngularMaterialModule,
     AngularFireAuthModule,
+    AngularMaterialModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     LoginModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase/app';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +33,11 @@ export class AuthService {
   }
   
   async signInWithGoogle() {
-    return this.oAuthProvider(new firebase.auth.GoogleAuthProvider()).then((authentication) => {
+    return this.oAuthProvider(new auth.GoogleAuthProvider())
+    .then((authentication) => {
       console.log('Logged In');
     }).catch(error => {
       console.error(error);
     });
   }
-  ​
 }
