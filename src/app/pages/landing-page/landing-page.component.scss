@@ -1,0 +1,128 @@
+@import '../../../assets/scss/palette.scss';
+
+.sidenav-container {
+  min-height: 100vh;
+  background: $black;
+
+  ::ng-deep .mat-sidenav {
+    background: $background;
+
+    @media only screen and (max-width: 731px) {
+      position: fixed;
+    }
+
+    &-content {
+      background: inherit;
+    }
+  }
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.cinemapp-title {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.app-header {
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+  background-color: #d32f2f !important;
+}
+
+.icon-menu-ui {
+  color: $white;
+}
+
+.navigation {
+  &--search {
+    background: #d32f2f;
+    min-height: 3rem;
+    line-height: 1;
+    padding: 16px 0 0 20px;
+
+    .mat-form-field {
+      width: 180px;
+      padding: 0 20px;
+      font-size: 13px;
+    }
+
+    ::ng-deep .mat-form-field-outline {
+      color: $white;
+    }
+
+    ::ng-deep .mat-form-field-label {
+      color: $white;
+    }
+
+    .mat-icon {
+      color: $white;
+      height: 1.75rem;
+    }
+  }
+
+  &--links {
+    padding-inline-start: 30px;
+
+    li {
+      min-height: 3rem;
+      line-height: 3;
+      padding-left: 10px;
+
+      &:hover {
+        background-color: $hover-sidebar;
+      }
+
+      &:last-child {
+        color: $white;
+      }
+    }
+
+    a {
+      display: block;
+      padding: .625rem 0;
+      color: $white;
+
+      &:hover {
+        color: $primary-light;
+      }
+
+      .mat-icon {
+        height: 1.75rem;
+      }
+    }
+
+    .active {
+      color: $primary-light;
+    }
+  }
+}
+
+/* button return top*/
+[id="btn-returnToTop"] {
+  position: fixed;
+  bottom: 40px;
+  right: 12px;
+  display: none;
+  z-index: 1;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

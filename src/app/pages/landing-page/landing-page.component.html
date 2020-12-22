@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <nav class="navigation">
+      <div class="navigation--search">
+        <mat-form-field appearance="outline">
+          <mat-label>Buscar película...</mat-label>
+          <input matInput #search (keyup.enter)="closeSidenav()"
+            tabindex="-1">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <ul class="navigation--links">
+        <li>
+          <a [routerLink]="['/billboard']" routerLinkActive="active" (click)="closeSidenav()">
+            <mat-icon>local_movies</mat-icon>En Cartelera
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/movies', 'upcoming']" routerLinkActive="active" (click)="closeSidenav()">
+            <mat-icon>date_range</mat-icon> Proximamente
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/movies', 'discover']" routerLinkActive="active" (click)="closeSidenav()">
+            <mat-icon>whatshot</mat-icon>Trending
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="app-header">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon" class="icon-menu-ui">menu</mat-icon>
+      </button>
+      <span class="cinemapp-title">cinemapp</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<div id="btn-returnToTop">
+  <button mat-mini-fab color="primary" (click)="scrollTop()">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
+</div>
