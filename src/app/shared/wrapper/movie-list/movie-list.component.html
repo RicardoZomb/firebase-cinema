@@ -1,0 +1,12 @@
+<div class="items" *ngIf="movies && movies.length > 0; else noResults">
+  <div class="item" *ngFor="let movie of movies">
+    <a [routerLink]="['/movie-detail', movie.id]">
+      <img *ngIf="movie.poster_path" [defaultImage]="'assets/images/no_poster_available.jpg'"
+        [lazyLoad]="'http://image.tmdb.org/t/p/w185/' + movie.poster_path">
+    </a>
+  </div>
+</div>
+<ng-template #noResults>
+  <h3>No hay resultados</h3>
+  <mat-icon>sentiment_very_dissatisfied</mat-icon>
+</ng-template>

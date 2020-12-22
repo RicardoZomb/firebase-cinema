@@ -1,3 +1,74 @@
-<p>
-  movie-detail works!
-</p>
+<div class="movie" *ngIf="movie">
+  <div class="movie--background-information">
+    <div class="image-position" [ngStyle]=" { 'background-image': 'url(' + 'https://image.tmdb.org/t/p/original' +
+      movie.backdrop_path + ')'}"></div>
+    <div class="vignette"></div>
+  </div>
+  <div class="movie__detail-back-ui">
+    <button class="button-back" (click)="backToPreviousPage()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2>{{ movie.title }}</h2>
+  </div>
+  <div class="movie__detail-information-ui">
+    <div class="movie--detail-info-pharagraph">
+      <p>
+        <mat-icon>date_range</mat-icon> {{ movie.release_date | date }} |
+        <mat-icon>timer</mat-icon> {{ movie.runtime }} minutos |
+        <mat-icon [ngClass]="{ 'mat-green' : movie.vote_average >=7, 'mat-red' : movie.vote_average < 7 }">start
+        </mat-icon> {{ movie.vote_average }}
+      </p>
+    </div>
+    <div class="movie--detail-genre">
+      <ul>
+        <li *ngFor="let genre of movie.genres">
+          <a>{{ genre.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <p class="movie--detail-overview"> {{ movie.overview }}</p>
+  </div>
+</div>
+<mat-tab-group class="movie__tab">
+  <mat-tab label="{{ 'Movie.Cast' | translate }}">
+    <section class="movie--cast" *ngIf="cast.length > 0; else noCast">
+      <div class="cast" *ngFor="let person of cast">
+        <a [routerLink]="['/star', person.id]">
+          <div class="icon-container avatar" [ngStyle]="{ 'background-image': 'url(' + 'https://image.tmdb.org/t/p/w92' +
+                person.profile_path + ')'}">
+          </div>
+          <h3>{{ person.name }}</h3>
+          <p>{{ person.character }}</p>
+        </a>
+      </div>
+    </section>
+    <ng-template #noCast>
+      <h3>
+        {{ "Movie.No results" | translate }}
+        <mat-icon>sentiment_very_dissatisfied</mat-icon>
+      </h3>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="{{ 'Movie.Trailer' | translate }}">
+    <section class="movie--trailers" *ngIf="videos.length > 0; else noTrailer">
+      <div class="btn-play" *ngFor="let url of moviesUrl">
+        <button mat-mini-fab color="primary" (click)="openDialogTrailer(url.url)">
+          <mat-icon aria-label="Example icon-button with a heart icon">play_circle_filled_white
+          </mat-icon>
+        </button>
+        <p>{{url.name}}</p>
+      </div>
+    </section>
+    <ng-template #noTrailer>
+      <h3>
+        {{ "Movie.No trailer" | translate }}
+        <mat-icon>sentiment_very_dissatisfied</mat-icon>
+      </h3>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="{{ 'Movie.Similar' | translate }}">
+    <section class="movie--similar items" *ngIf="similarMovies">
+      <app-movie-list [movies]="similarMovies"></app-movie-list>
+    </section>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,31 @@
+@import '../../../../assets/scss/palette.scss';
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .item {
+    position: relative;
+    margin: 1rem 0.625rem;
+    width: 200px;
+    text-align: center;
+
+    a {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    .btn-add {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  h3 {
+    margin: 15px 0 5px;
+    color: $primary-light;
+  }
+}

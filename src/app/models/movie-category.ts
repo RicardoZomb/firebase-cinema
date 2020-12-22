@@ -2,7 +2,7 @@ import { MovieModel } from "./movie-model";
  
 export interface MovieCategoryModel {
   page: number;
-  result: MovieModel[];
+  results: MovieModel[];
   dates?: {
     maximum: string;
     minimum: string;
